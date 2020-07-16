@@ -1,0 +1,6 @@
+.idea/
+src/main/resources/application-dev.properties
+target/
+*.log
+*.gz
+*.tmp
