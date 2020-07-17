@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import work.hamid.interview.domain.QuestionParams;
 import work.hamid.interview.domain.SearchParams;
+import work.hamid.interview.domain.TagsParams;
 import work.hamid.interview.web.response.ApiResponse;
 
 @Component
@@ -24,10 +25,11 @@ public class StackOverflowApi {
 
     public ApiResponse search(SearchParams params) {
         try {
+            System.out.println(params.toQueryParams());
             return restTemplate.getForObject(baseUrl + "/search/advanced?" + params.toQueryParams(), ApiResponse.class);
         }
         catch (Exception e) {
-            logger.error("Exception occurred while fetching the api: {}", e.getMessage());
+            logger.error("Exception occurred while fetching search api: {}", e.getMessage());
             return new ApiResponse();
         }
     }
@@ -39,17 +41,18 @@ public class StackOverflowApi {
             return restTemplate.getForObject(baseUrl + "/questions/" + params.getId() + "?" + params.toQueryParams(), ApiResponse.class);
         }
         catch (Exception e) {
-            logger.error("Exception occurred while fetching the api: {}", e.getMessage());
+            logger.error("Exception occurred while fetching questions api: {}", e.getMessage());
             return new ApiResponse();
         }
     }
 
     public ApiResponse tags() {
         try {
-            return restTemplate.getForObject(baseUrl + "/tags", ApiResponse.class);
+            var params = new TagsParams();
+            return restTemplate.getForObject(baseUrl + "/tags?" + params.toQueryParams(), ApiResponse.class);
         }
         catch (Exception e) {
-            logger.error("Exception occurred while fetching the api: {}", e.getMessage());
+            logger.error("Exception occurred while fetching tags api: {}", e.getMessage());
             return new ApiResponse();
         }
     }

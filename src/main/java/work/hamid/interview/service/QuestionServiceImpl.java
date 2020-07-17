@@ -1,5 +1,7 @@
 package work.hamid.interview.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import work.hamid.interview.domain.SearchParams;
@@ -18,6 +20,11 @@ import java.util.List;
 public class QuestionServiceImpl implements QuestionService {
 
     private final StackOverflowApi api;
+
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    // cached tags
+    private ApiResponse tags;
 
     // return 10 newest android questions
     @Autowired
@@ -49,9 +56,10 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public ApiResponse get(long id) {
+    public ApiResponse question(long id) {
         var results = api.question(id);
         if(results.getItems().size() == 0) {
+            logger.error("Questions api returned nothing.");
             throw new NotFoundException();
         }
 
@@ -74,6 +82,24 @@ public class QuestionServiceImpl implements QuestionService {
                 });
             }
         });
+
+        return results;
+    }
+
+    @Override
+    public ApiResponse tags() {
+        if(tags != null) {
+            return tags;
+        }
+        tags = api.tags();
+
+        return tags;
+    }
+
+    @Override
+    public ApiResponse search(SearchParams params) {
+        var results =  api.search(params);
+        results.getItems().forEach(item -> item.put("date", parseDate((Integer) item.get("creation_date"))));
 
         return results;
     }

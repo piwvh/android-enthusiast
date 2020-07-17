@@ -1,5 +1,6 @@
 package work.hamid.interview.service;
 
+import work.hamid.interview.domain.SearchParams;
 import work.hamid.interview.web.response.ApiResponse;
 
 public interface QuestionService {
@@ -8,5 +9,9 @@ public interface QuestionService {
 
     ApiResponse mostVoted();
 
-    ApiResponse get(long id);
+    ApiResponse question(long id);
+
+    ApiResponse tags();
+
+    ApiResponse search(SearchParams params);
 }

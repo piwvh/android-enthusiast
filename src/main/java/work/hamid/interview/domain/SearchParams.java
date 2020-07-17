@@ -2,7 +2,10 @@ package work.hamid.interview.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.PastOrPresent;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -10,14 +13,17 @@ import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Data
+@NoArgsConstructor
 public class SearchParams extends AbstractParams {
 
     private int page = 1;
 
     private int pageSize = 10;
 
+    @PastOrPresent @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime fromDate;
 
+    @PastOrPresent @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime toDate;
 
     private String q;

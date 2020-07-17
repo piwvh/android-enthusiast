@@ -1,7 +1,12 @@
 package work.hamid.interview.config;
 
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -11,6 +16,7 @@ import org.springframework.web.filter.CorsFilter;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.FixedLocaleResolver;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 @Configuration
@@ -50,5 +56,20 @@ public class AppConfig {
     public RestTemplate restTemplate() {
         var requestFactory = new HttpComponentsClientHttpRequestFactory(HttpClientBuilder.create().build());
         return new RestTemplate(requestFactory);
+    }
+
+    // jackson date format
+    @Bean
+    public Jackson2ObjectMapperBuilderCustomizer customDateFormat() {
+        var format1 = "yyyy-MM-dd HH:mm:ss";
+        var format2 = "yyyy-MM-dd";
+
+        return builder -> {
+            builder.simpleDateFormat(format1);
+            builder.serializers(new LocalDateTimeSerializer(DateTimeFormatter.ofPattern(format1)));
+            builder.deserializers(new LocalDateTimeDeserializer(DateTimeFormatter.ofPattern(format1)));
+            builder.serializers(new LocalDateSerializer(DateTimeFormatter.ofPattern(format2)));
+            builder.deserializers(new LocalDateDeserializer(DateTimeFormatter.ofPattern(format2)));
+        };
     }
 }
