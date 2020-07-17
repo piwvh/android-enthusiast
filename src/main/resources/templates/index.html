@@ -12,22 +12,7 @@
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="assets/img/android-logo.png" alt="android logo">
-            </div>
-            <h1>Android Enthusiast</h1>
-            <ul class="menu">
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">Search</a>
-                </li>
-            </ul>
-        </div>
-    </header>
+<div th:insert="partials/header :: header" th:remove="tag"></div>
     <section id="home-page" class="main">
         <div id="questions">
             <div class="container">
@@ -102,14 +87,6 @@
             </div>
         </div>
     </section>
-    <footer>
-        <div class="container">
-            <p>This is a test website to replace StackOverflow.com on Android-related questions.</p>
-            <p id="creator">Created by <a href="https://hamid.work" target="_blank">Hamid</a></p>
-            <p id="copyright">
-                <i class="fa fa-copyright"></i> 2020
-            </p>
-        </div>
-    </footer>
+    <div th:insert="partials/footer :: footer" th:remove="tag"></div>
 </body>
 </html>
