@@ -1,10 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:insert="partials/head :: head" th:remove="tag"></head>
 <body>
-    <h1>ERROR!!!</h1>
+<div th:insert="partials/header :: header" th:remove="tag"></div>
+<section id="error-page" class="main">
+    <div class="container">
+        <div class="content">
+            <h1>
+                404 <i class="fa fa-chain-broken"></i>
+            </h1>
+            <p>Sorry <i class="fa fa-frown-o"></i> This page does not exist.</p>
+        </div>
+    </div>
+</section>
+<div th:insert="partials/footer :: footer" th:remove="tag"></div>
 </body>
 </html>
