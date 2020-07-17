@@ -1,0 +1,159 @@
+/* cyrillic-ext */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local("Nunito Light"), local("Nunito-Light"), url(https://fonts.gstatic.com/s/nunito/v13/XRXW3I6Li01BKofAnsSUbOvISTs.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local("Nunito Light"), local("Nunito-Light"), url(../font/Nunito-Light.ttf) format("woff2");
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local("Nunito Light"), local("Nunito-Light"), url(https://fonts.gstatic.com/s/nunito/v13/XRXW3I6Li01BKofAnsSUbuvISTs.woff2) format("woff2");
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local("Nunito Light"), local("Nunito-Light"), url(https://fonts.gstatic.com/s/nunito/v13/XRXW3I6Li01BKofAnsSUb-vISTs.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local("Nunito Light"), local("Nunito-Light"), url(https://fonts.gstatic.com/s/nunito/v13/XRXW3I6Li01BKofAnsSUYevI.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+header {
+  height: 70px;
+  padding-top: 10px;
+  background: #0141ff;
+}
+header .logo {
+  float: left;
+}
+header .logo img {
+  height: 50px;
+}
+header h1 {
+  float: left;
+  margin-left: 15px;
+  font-size: 26px;
+  line-height: 50px;
+  color: #FFF;
+}
+header .menu {
+  float: right;
+  list-style: none;
+}
+header .menu li {
+  float: left;
+  margin-left: 45px;
+  line-height: 50px;
+}
+header .menu li a {
+  color: #FFF;
+}
+
+.main {
+  min-height: 600px;
+}
+
+footer {
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.7);
+}
+footer p {
+  text-align: center;
+  color: #FFF;
+  margin-bottom: 10px;
+}
+footer p a {
+  color: #FFF;
+}
+footer #creator, footer #creator a {
+  font-size: 17px;
+}
+footer #copyright {
+  font-size: 12px;
+}
+
+#home-page #questions {
+  margin-top: 50px;
+}
+#home-page .questions-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+#home-page .questions-section li.q {
+  padding: 5px 10px 7px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+#home-page .questions-section li.q .title {
+  color: #0191ff;
+}
+#home-page .questions-section li.q .info span {
+  margin-right: 20px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+}
+#home-page .questions-section li.q .tags {
+  margin-top: 20px;
+}
+#home-page .questions-section li.q .tags span {
+  float: left;
+  margin-right: 10px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.4);
+}
+#home-page .questions-section li.q .tags li {
+  padding: 2px 3px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFF;
+  float: left;
+  margin-right: 5px;
+  font-size: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#home-page .questions-section li.q .tags li:hover {
+  background: #0191ff;
+}
+
+/*# sourceMappingURL=style.css.map */

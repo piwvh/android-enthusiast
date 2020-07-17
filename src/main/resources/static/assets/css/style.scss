@@ -1,0 +1,133 @@
+@import "font";
+
+// variables
+$blue: rgb(1, 65, 255);
+$blueLight: rgb(1, 145, 255);
+
+// reset
+* {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+a:hover {
+  text-decoration: none;
+}
+
+header {
+  height: 70px;
+  padding-top: 10px;
+  background: $blue;
+  .logo {
+    float: left;
+    img {
+      height: 50px;
+    }
+  }
+  h1 {
+    float: left;
+    margin-left: 15px;
+    font-size: 26px;
+    line-height: 50px;
+    color: #FFF;
+  }
+  .menu {
+    float: right;
+    list-style: none;
+
+    li {
+      float: left;
+      margin-left: 45px;
+      line-height: 50px;
+
+      a {
+        color: #FFF;
+      }
+    }
+  }
+}
+
+.main {
+  min-height: 600px;
+}
+
+footer {
+  padding: 30px;
+  background: rgba(#000, 0.7);
+
+  p {
+    text-align: center;
+    color: #FFF;
+    margin-bottom: 10px;
+
+    a {
+      color: #FFF;
+    }
+  }
+  #creator {
+    &, a {
+      font-size: 17px;
+    }
+  }
+  #copyright {
+    font-size: 12px;
+  }
+}
+
+#home-page {
+  #questions {
+    margin-top: 50px;
+  }
+  .questions-section {
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    li.q {
+      padding: 5px 10px 7px;
+      border: 1px solid rgba(#000, 0.2);
+      background: rgba(#000, 0.05);
+      overflow: hidden;
+      margin-bottom: 30px;
+
+      .title {
+        color: $blueLight;
+      }
+      .info {
+        span {
+          margin-right: 20px;
+          font-size: 12px;
+          color: rgba(#000, 0.4)
+        }
+      }
+      .tags {
+        margin-top: 20px;
+
+        span {
+          float: left;
+          margin-right: 10px;
+          font-size: 14px;
+          color: rgba(#000, 0.4);
+        }
+        li {
+          padding: 2px 3px;
+          background: rgba(#000, 0.5);
+          color: #FFF;
+          float: left;
+          margin-right: 5px;
+          font-size: 12px;
+          border-radius: 5px;
+          cursor: pointer;
+
+          &:hover {
+            background: $blueLight;
+          }
+        }
+      }
+    }
+  }
+}

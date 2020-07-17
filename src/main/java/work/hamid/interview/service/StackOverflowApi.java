@@ -3,12 +3,12 @@ package work.hamid.interview.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import work.hamid.interview.domain.SearchParams;
 import work.hamid.interview.domain.SearchResult;
 
-@Service
+@Component
 public class StackOverflowApi {
 
     private final RestTemplate restTemplate;
