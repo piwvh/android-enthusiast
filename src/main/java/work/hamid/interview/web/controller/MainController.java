@@ -26,8 +26,15 @@ public class MainController {
     }
 
     @GetMapping("/question/{id}")
-    public String question(@PathVariable int id) {
-        return "question";
+    public String question(@PathVariable long id, Model model) {
+        try {
+            model.addAttribute("question", service.get(id).getItems().get(0));
+            return "question";
+        }
+        catch (Exception e) {
+            throw e;
+            //return "error";
+        }
     }
 
 }

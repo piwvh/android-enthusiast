@@ -1,92 +1,82 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Android Enthusiast</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/fa.min.css">
-    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-</head>
+<head th:insert="partials/head :: head" th:remove="tag"></head>
 <body>
 <div th:insert="partials/header :: header" th:remove="tag"></div>
-    <section id="home-page" class="main">
-        <div id="questions">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="questions-section">
-                            <h2>10 Newest Questions</h2>
-                            <ul>
-                                <li class="q" th:each="item : ${newest}">
-                                    <div class="title" th:inline="text">
-                                        <i class="fa fa-question-circle-o"></i>
-                                        [[${item.get('title')}]]
-                                    </div>
-                                    <div class="info" th:inline="text">
-                                        <span class="score" title="Votes">
-                                            <i class="fa fa-thumbs-up"></i> [[${item.get('score')}]]
-                                        </span>
-                                        <span class="view-count" title="View Count">
-                                            <i class="fa fa-eye"></i> [[${item.get('view_count')}]]
-                                        </span>
-                                        <span class="answer-count" title="Answer Count">
-                                            <i class="fa fa-quote-left"></i> [[${item.get('answer_count')}]]
-                                        </span>
-                                        <span class="date">
-                                            <i class="fa fa-calendar"></i> [[${item.get('date')}]]
-                                        </span>
-                                    </div>
-                                    <div class="tags">
-                                        <span>Tags:</span>
-                                        <ul th:each="tag: ${item.get('tags')}">
-                                            <li th:text="${tag}"></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+<section id="home-page" class="main">
+    <div id="questions">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="questions-section">
+                        <h2>10 Newest Questions</h2>
+                        <ul>
+                            <li class="q" th:each="item : ${newest}">
+                                <div class="title" th:inline="text">
+                                    <i class="fa fa-question-circle-o"></i>
+                                    <a th:href="${'/question/' + item.question_id}" th:text="${item.title}"></a>
+                                </div>
+                                <div class="info" th:inline="text">
+                                    <span class="score" title="Votes">
+                                        <i class="fa fa-thumbs-o-up"></i> [[${item.score}]]
+                                    </span>
+                                    <span class="view-count" title="View Count">
+                                        <i class="fa fa-eye"></i> [[${item.view_count}]]
+                                    </span>
+                                    <span class="answer-count" title="Answer Count">
+                                        <i class="fa fa-quote-left"></i> [[${item.answer_count}]]
+                                    </span>
+                                    <span class="date">
+                                        <i class="fa fa-calendar"></i> [[${item.date}]]
+                                    </span>
+                                </div>
+                                <div class="tags">
+                                    <span>Tags:</span>
+                                    <ul th:each="tag: ${item.tags}">
+                                        <li th:text="${tag}"></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="col">
-                        <div class="questions-section">
-                            <h2>10 Most Voted Questions</h2>
-                            <ul>
-                                <li class="q" th:each="item : ${mostVoted}">
-                                    <div class="title" th:inline="text">
-                                        <i class="fa fa-question-circle-o"></i>
-                                        [[${item.get('title')}]]
-                                    </div>
-                                    <div class="info" th:inline="text">
-                                        <span class="score" title="Votes">
-                                            <i class="fa fa-thumbs-up"></i> [[${item.get('score')}]]
-                                        </span>
-                                        <span class="view-count" title="View Count">
-                                            <i class="fa fa-eye"></i> [[${item.get('view_count')}]]
-                                        </span>
-                                        <span class="answer-count" title="Answer Count">
-                                            <i class="fa fa-quote-left"></i> [[${item.get('answer_count')}]]
-                                        </span>
-                                        <span class="date" title="Creation Date">
-                                            <i class="fa fa-calendar"></i> [[${item.get('date')}]]
-                                        </span>
-                                    </div>
-                                    <div class="tags">
-                                        <span>Tags:</span>
-                                        <ul th:each="tag: ${item.get('tags')}">
-                                            <li th:text="${tag}"></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="col">
+                    <div class="questions-section">
+                        <h2>10 Most Voted Questions</h2>
+                        <ul>
+                            <li class="q" th:each="item : ${mostVoted}">
+                                <div class="title" th:inline="text">
+                                    <i class="fa fa-question-circle-o"></i>
+                                    <a th:href="${'/question/' + item.question_id}" th:text="${item.title}"></a>
+                                </div>
+                                <div class="info" th:inline="text">
+                                    <span class="score" title="Votes">
+                                        <i class="fa fa-thumbs-up"></i> [[${item.score}]]
+                                    </span>
+                                    <span class="view-count" title="View Count">
+                                        <i class="fa fa-eye"></i> [[${item.view_count}]]
+                                    </span>
+                                    <span class="answer-count" title="Answer Count">
+                                        <i class="fa fa-quote-left"></i> [[${item.answer_count}]]
+                                    </span>
+                                    <span class="date" title="Creation Date">
+                                        <i class="fa fa-calendar"></i> [[${item.date}]]
+                                    </span>
+                                </div>
+                                <div class="tags">
+                                    <span>Tags:</span>
+                                    <ul th:each="tag: ${item.tags}">
+                                        <li th:text="${tag}"></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
     <div th:insert="partials/footer :: footer" th:remove="tag"></div>
 </body>
 </html>

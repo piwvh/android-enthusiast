@@ -1,14 +1,16 @@
 package work.hamid.interview.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class SearchParams {
+public class SearchParams extends AbstractParams {
 
     private int page = 1;
 
@@ -25,8 +27,6 @@ public class SearchParams {
     private Sort sort = Sort.CREATION;
 
     private Order order = Order.DESC;
-
-    private String site = "stackoverflow";
 
     public enum Sort {
         ACTIVITY,

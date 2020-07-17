@@ -57,6 +57,14 @@ a:hover {
   text-decoration: none;
 }
 
+pre {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 10px;
+}
+pre code {
+  font-size: 12px;
+}
+
 header {
   height: 70px;
   padding-top: 10px;
@@ -90,6 +98,7 @@ header .menu li a {
 
 .main {
   min-height: 600px;
+  padding: 50px 0;
 }
 
 footer {
@@ -111,9 +120,6 @@ footer #copyright {
   font-size: 12px;
 }
 
-#home-page #questions {
-  margin-top: 50px;
-}
 #home-page .questions-section h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -133,16 +139,62 @@ footer #copyright {
   font-size: 12px;
   color: rgba(0, 0, 0, 0.4);
 }
-#home-page .questions-section li.q .tags {
+
+#question-page .head {
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+#question-page .head h1 {
+  font-size: 30px;
+}
+#question-page .head .info span {
+  font-size: 14px;
+  margin-right: 30px;
+}
+#question-page .body {
+  padding: 20px 0;
+}
+#question-page .body .score {
+  font-size: 24px;
+}
+#question-page .body .info {
+  overflow: hidden;
+}
+#question-page .body .info .owner {
+  float: right;
+}
+#question-page .body .info .owner .image {
+  margin-right: 5px;
+}
+#question-page .body .info .owner .image img {
+  width: 30px;
+}
+#question-page .body .comments {
+  margin-top: 30px;
+}
+#question-page .body .comments li {
+  padding: 3px 0 1px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  line-height: 30px;
+}
+#question-page .body .comments li:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+#question-page .body .comments li p {
+  margin-bottom: 0;
+}
+
+.tags {
   margin-top: 20px;
 }
-#home-page .questions-section li.q .tags span {
+.tags span {
   float: left;
   margin-right: 10px;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.4);
 }
-#home-page .questions-section li.q .tags li {
+.tags li {
   padding: 2px 3px;
   background: rgba(0, 0, 0, 0.5);
   color: #FFF;
@@ -152,7 +204,7 @@ footer #copyright {
   border-radius: 5px;
   cursor: pointer;
 }
-#home-page .questions-section li.q .tags li:hover {
+.tags li:hover {
   background: #0191ff;
 }
 

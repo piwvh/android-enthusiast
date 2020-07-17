@@ -1,10 +1,107 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:insert="partials/head :: head" th:remove="tag"></head>
 <body>
-
+<div th:insert="partials/header :: header" th:remove="tag"></div>
+<section id="question-page" class="main">
+    <div class="container">
+        <div class="post">
+            <div class="head">
+                <h1 th:utext="${question.title}"></h1>
+                <div class="info">
+                    <span class="date">Asked on [[${question.date}]]</span>
+                    <span class="view-count">Viewed [[${question.view_count}]] times</span>
+                </div>
+            </div>
+            <div class="body">
+                <div class="row">
+                    <div class="col-md-1">
+                        <div class="score">
+                            <i class="fa fa-thumbs-o-up"></i> [[${question.score}]]
+                        </div>
+                    </div>
+                    <div class="col-md-11">
+                        <div class="content" th:utext="${question.body}"></div>
+                        <div class="info">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="tags">
+                                        <span>Tags:</span>
+                                        <ul th:each="tag: ${question.tags}">
+                                            <li th:text="${tag}"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="owner">
+                                        <span class="image" th:if="${question.owner.containsKey('profile_image')}">
+                                            <img th:src="${question.owner.profile_image}" alt="owner image">
+                                        </span>
+                                        <span class="name" th:text="${question.owner.display_name}"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comments" th:if="${question.containsKey('comments')}">
+                            <ul>
+                                <li th:each="comment: ${question.comments}">
+                                    <p>
+                                        <span class="text" th:utext="${comment.body}"></span> –
+                                        <span class="owner" th:text="${comment.owner.display_name}"></span>
+                                        <span class="date" th:text="${comment.date}"></span>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="answers" th:if="${question.containsKey('answers')}">
+            <h2>Answers</h2>
+            <div class="list">
+                <div class="post" th:each="answer: ${question.answers}" >
+                    <div class="body">
+                        <div class="row">
+                            <div class="col-md-1">
+                                <div class="score">
+                                    <i class="fa fa-thumbs-o-up"></i> [[${answer.score}]]
+                                </div>
+                            </div>
+                            <div class="col-md-11">
+                                <div class="content" th:utext="${answer.body}"></div>
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="col"></div>
+                                        <div class="col">
+                                            <div class="owner">
+                                                <span class="image" th:if="${answer.owner.containsKey('profile_image')}">
+                                                    <img th:src="${answer.owner.profile_image}" alt="owner image">
+                                                </span>
+                                                <span class="name" th:text="${answer.owner.display_name}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="comments" th:if="${answer.containsKey('comments')}">
+                                    <ul>
+                                        <li th:each="comment: ${answer.comments}">
+                                            <p>
+                                                <span class="text" th:utext="${comment.body}"></span> –
+                                                <span class="owner" th:text="${comment.owner.display_name ?: ''}"></span>
+                                                <span class="date" th:text="${comment.date}"></span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:insert="partials/footer :: footer" th:remove="tag"></div>
 </body>
 </html>

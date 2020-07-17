@@ -1,10 +1,12 @@
 package work.hamid.interview.service;
 
-import work.hamid.interview.domain.SearchResult;
+import work.hamid.interview.web.response.ApiResponse;
 
 public interface QuestionService {
 
-    SearchResult newest();
+    ApiResponse newest();
 
-    SearchResult mostVoted();
+    ApiResponse mostVoted();
+
+    ApiResponse get(long id);
 }

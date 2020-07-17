@@ -3,13 +3,16 @@ package work.hamid.interview.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import work.hamid.interview.domain.SearchParams;
-import work.hamid.interview.domain.SearchResult;
+import work.hamid.interview.exception.NotFoundException;
+import work.hamid.interview.web.response.ApiResponse;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 @Service
 public class QuestionServiceImpl implements QuestionService {
@@ -22,7 +25,7 @@ public class QuestionServiceImpl implements QuestionService {
         this.api = api;
     }
 
-    public SearchResult newest() {
+    public ApiResponse newest() {
         var params = new SearchParams();
         params.setTagged(Collections.singletonList("android"));
 
@@ -33,14 +36,44 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     // return 10 most voted android questions
-    public SearchResult mostVoted() {
+    public ApiResponse mostVoted() {
         var params = new SearchParams();
         params.setFromDate(LocalDateTime.now().minusWeeks(1));
         params.setTagged(Collections.singletonList("android"));
         params.setSort(SearchParams.Sort.VOTES);
 
-        var results =  api.search(params);
+        var results = api.search(params);
         results.getItems().forEach(item -> item.put("date", parseDate((Integer) item.get("creation_date"))));
+
+        return results;
+    }
+
+    @Override
+    public ApiResponse get(long id) {
+        var results = api.question(id);
+        if(results.getItems().size() == 0) {
+            throw new NotFoundException();
+        }
+
+        results.getItems().forEach(item -> {
+            item.put("date", parseDate((Integer) item.get("creation_date")));
+            var comments = (List<HashMap<String, Object>>) item.get("comments");
+            if(comments != null) {
+                comments.forEach(comment -> comment.put("date", parseDate((Integer) comment.get("creation_date"))));
+            }
+
+            var answers = (List<HashMap<String, Object>>) item.get("answers");
+            if(answers != null) {
+                answers.forEach(answer -> {
+                    answer.put("date", parseDate((Integer) answer.get("creation_date")));
+
+                    var comments2 = (List<HashMap<String, Object>>) answer.get("comments");
+                    if(comments2 != null) {
+                        comments2.forEach(comment -> comment.put("date", parseDate((Integer) comment.get("creation_date"))));
+                    }
+                });
+            }
+        });
 
         return results;
     }
