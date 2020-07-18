@@ -11,7 +11,7 @@ services:
     environment:
       - "SPRING_PROFILES_ACTIVE=prod"
     ports:
-    - "8585:8080"
+    - "8585:8585"
     networks:
       - app-network
     command: mvn clean spring-boot:run
