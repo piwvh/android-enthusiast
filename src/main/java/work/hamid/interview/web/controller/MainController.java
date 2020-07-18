@@ -5,15 +5,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import work.hamid.interview.service.QuestionService;
+import work.hamid.interview.service.DataService;
 
 @Controller
 public class MainController {
 
-    private final QuestionService service;
+    private final DataService service;
 
     @Autowired
-    public MainController(QuestionService service) {
+    public MainController(DataService service) {
         this.service = service;
     }
 

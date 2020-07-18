@@ -28,13 +28,13 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="from-date">From Date</label>
-                        <input type="date" class="form-control" id="from-date" name="from-date">
+                        <input type="date" class="form-control" id="from-date" name="from-date" th:max="${today}">
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label for="to-date">To Date</label>
-                        <input type="date" class="form-control" id="to-date" name="to-date">
+                        <input type="date" class="form-control" id="to-date" name="to-date" th:max="${today}">
                     </div>
                 </div>
                 <div class="col">

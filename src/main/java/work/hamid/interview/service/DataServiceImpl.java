@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @Service
-public class QuestionServiceImpl implements QuestionService {
+public class DataServiceImpl implements DataService {
 
     private final StackOverflowApi api;
 
@@ -28,7 +28,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     // return 10 newest android questions
     @Autowired
-    public QuestionServiceImpl(StackOverflowApi api) {
+    public DataServiceImpl(StackOverflowApi api) {
         this.api = api;
     }
 

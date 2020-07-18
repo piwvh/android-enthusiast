@@ -14,7 +14,6 @@ public class App {
 
     @Bean
     CommandLineRunner runner() {
-        return args -> {
-        };
+        return args -> {};
     }
 }

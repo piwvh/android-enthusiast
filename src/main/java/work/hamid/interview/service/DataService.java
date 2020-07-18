@@ -3,7 +3,7 @@ package work.hamid.interview.service;
 import work.hamid.interview.domain.SearchParams;
 import work.hamid.interview.web.response.ApiResponse;
 
-public interface QuestionService {
+public interface DataService {
 
     ApiResponse newest();
 

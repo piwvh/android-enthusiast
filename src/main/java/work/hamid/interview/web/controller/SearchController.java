@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import work.hamid.interview.domain.SearchParams;
-import work.hamid.interview.service.QuestionService;
+import work.hamid.interview.service.DataService;
 import work.hamid.interview.web.response.ApiResponse;
 
 import javax.validation.Valid;
@@ -15,10 +15,10 @@ import javax.validation.Valid;
 @RequestMapping("api")
 public class SearchController {
 
-    private final QuestionService service;
+    private final DataService service;
 
     @Autowired
-    public SearchController(QuestionService service) {
+    public SearchController(DataService service) {
         this.service = service;
     }
 
