@@ -42,7 +42,7 @@ public class QuestionServiceImpl implements QuestionService {
         return results;
     }
 
-    // return 10 most voted android questions
+    // return 10 most voted android questions from last week
     public ApiResponse mostVoted() {
         var params = new SearchParams();
         params.setFromDate(LocalDateTime.now().minusWeeks(1));

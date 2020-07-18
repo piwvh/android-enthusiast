@@ -18,8 +18,9 @@
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <label for="tagged">Tags</label>
+                        <label for="tagged">Subject</label>
                         <select class="form-control" id="tagged" name="tagged">
+                            <option value="">All</option>
                             <option th:each="tag: ${tags}" th:value="${tag.name}" th:text="${tag.name}" th:selected="${tag.name == 'android'}"></option>
                         </select>
                     </div>
@@ -32,7 +33,7 @@
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <label for="to-date">From Date</label>
+                        <label for="to-date">To Date</label>
                         <input type="date" class="form-control" id="to-date" name="to-date">
                     </div>
                 </div>

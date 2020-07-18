@@ -3,6 +3,7 @@
 // variables
 $blue: rgb(1, 65, 255);
 $blueLight: rgb(1, 145, 255);
+$time: 0.2s;
 
 // reset
 * {
@@ -14,14 +15,14 @@ ul {
   list-style: none;
 }
 a:hover {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 pre {
   background: rgba(0, 0, 0, 0.05);
   padding: 10px;
 
   code {
-    font-size: 12px;;
+    font-size: 12px !important;
   }
 }
 
@@ -29,18 +30,27 @@ header {
   height: 70px;
   padding-top: 10px;
   background: $blue;
+
   .logo {
-    float: left;
+
+    &:hover {
+
+      h1 {
+        letter-spacing: 1px;
+      }
+    }
     img {
+      float: left;
       height: 50px;
     }
-  }
-  h1 {
-    float: left;
-    margin-left: 15px;
-    font-size: 26px;
-    line-height: 50px;
-    color: #FFF;
+    h1 {
+      float: left;
+      margin-left: 15px;
+      font-size: 26px;
+      line-height: 50px;
+      color: #FFF;
+      transition: all $time linear;
+    }
   }
   .menu {
     float: right;
@@ -53,13 +63,18 @@ header {
 
       a {
         color: #FFF;
+        transition: all $time linear;
+
+        &:hover {
+          color: lighten($blueLight, 30%)
+        }
       }
     }
   }
 }
 
 .main {
-  min-height: 600px;
+  min-height: 660px;
   padding: 50px 0;
 }
 
@@ -74,6 +89,11 @@ footer {
 
     a {
       color: #FFF;
+      transition: all $time linear;
+
+      &:hover {
+        color: lighten($blueLight, 30%)
+      }
     }
   }
   #creator {
@@ -94,24 +114,6 @@ footer {
       text-align: center;
       margin-bottom: 20px;
     }
-    li.q {
-      padding: 5px 10px 7px;
-      border: 1px solid rgba(#000, 0.2);
-      background: rgba(#000, 0.05);
-      overflow: hidden;
-      margin-bottom: 30px;
-
-      .title {
-        color: $blueLight;
-      }
-      .info {
-        span {
-          margin-right: 20px;
-          font-size: 12px;
-          color: rgba(#000, 0.4)
-        }
-      }
-    }
   }
 }
 
@@ -131,11 +133,20 @@ footer {
       }
     }
   }
+  .post {
+    padding: 20px 0;
+  }
   .body {
     padding: 20px 0;
 
     .score {
-      font-size: 24px;
+      font-size: 28px;
+      line-height: 20px;
+
+      i {
+        font-size: 16px;
+        vertical-align: top;
+      }
     }
     .info {
       overflow: hidden;
@@ -153,8 +164,12 @@ footer {
       }
     }
     .comments {
-      margin-top: 30px;
+      margin-top: 35px;
 
+      h3 {
+        font-size: 16px;
+        color: rgba(#000, 0.4);
+      }
       li {
         padding: 3px 0 1px;
         border-top: 1px solid rgba(#000, 0.1);
@@ -167,7 +182,46 @@ footer {
         p {
           margin-bottom: 0;
         }
+        .date {
+          font-size: 11px;
+          color: #666;
+          margin-left: 7px;
+        }
       }
+    }
+  }
+  #answers {
+
+    .post {
+      border-bottom: 1px solid rgba(#000, 0.2);
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+}
+
+#search-page {
+
+  #results {
+    margin-top: 50px;
+  }
+}
+
+#error-page {
+
+  .content {
+    text-align: center;
+    padding: 120px 0;
+
+    h1 {
+      font-size: 180px;
+      font-weight: bold;
+      margin-bottom: 100px;
+    }
+    p {
+      font-size: 50px;
     }
   }
 }
@@ -183,17 +237,37 @@ footer {
     color: rgba(#000, 0.4);
   }
   li {
-    padding: 2px 3px;
-    background: rgba(#000, 0.5);
+    padding: 2px 5px;
+    background: rgba(#000, 0.4);
     color: #FFF;
     float: left;
     margin-right: 5px;
     font-size: 12px;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 5px;
 
     &:hover {
       background: $blueLight;
+    }
+  }
+}
+li.q {
+  padding: 5px 10px 7px;
+  border: 1px solid rgba(#000, 0.2);
+  background: rgba(#000, 0.05);
+  overflow: hidden;
+  margin-bottom: 30px;
+
+  .title {
+    color: $blueLight;
+  }
+  .info {
+
+    span {
+      margin-right: 25px;
+      font-size: 12px;
+      color: rgba(#000, 0.4)
     }
   }
 }

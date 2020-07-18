@@ -11,6 +11,9 @@
                 <div class="info">
                     <span class="date">Asked on [[${question.date}]]</span>
                     <span class="view-count">Viewed [[${question.view_count}]] times</span>
+                    <span>
+                        <a th:href="${question.link}" target="_blank"><i class="fa fa-link"></i> Go to Stackoverflow</a>
+                    </span>
                 </div>
             </div>
             <div class="body">
@@ -37,17 +40,18 @@
                                         <span class="image" th:if="${question.owner.containsKey('profile_image')}">
                                             <img th:src="${question.owner.profile_image}" alt="owner image">
                                         </span>
-                                        <span class="name" th:text="${question.owner.display_name}"></span>
+                                        <span class="name" th:utext="${question.owner.display_name}"></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="comments" th:if="${question.containsKey('comments')}">
+                            <h3>Comments</h3>
                             <ul>
                                 <li th:each="comment: ${question.comments}">
                                     <p>
                                         <span class="text" th:utext="${comment.body}"></span> –
-                                        <span class="owner" th:text="${comment.owner.display_name}"></span>
+                                        <span class="owner" th:utext="${comment.owner.display_name}"></span>
                                         <span class="date" th:text="${comment.date}"></span>
                                     </p>
                                 </li>
@@ -78,17 +82,18 @@
                                                 <span class="image" th:if="${answer.owner.containsKey('profile_image')}">
                                                     <img th:src="${answer.owner.profile_image}" alt="owner image">
                                                 </span>
-                                                <span class="name" th:text="${answer.owner.display_name}"></span>
+                                                <span class="name" th:utext="${answer.owner.display_name}"></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="comments" th:if="${answer.containsKey('comments')}">
+                                    <h3>Comments</h3>
                                     <ul>
                                         <li th:each="comment: ${answer.comments}">
                                             <p>
                                                 <span class="text" th:utext="${comment.body}"></span> –
-                                                <span class="owner" th:text="${comment.owner.display_name ?: ''}"></span>
+                                                <span class="owner" th:utext="${comment.owner.display_name ?: ''}"></span>
                                                 <span class="date" th:text="${comment.date}"></span>
                                             </p>
                                         </li>

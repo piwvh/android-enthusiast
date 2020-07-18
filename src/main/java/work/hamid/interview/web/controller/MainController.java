@@ -6,9 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import work.hamid.interview.service.QuestionService;
-import work.hamid.interview.util.HttpUtil;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class MainController {
@@ -41,7 +38,6 @@ public class MainController {
 
     @GetMapping("/search")
     public String search(Model model) {
-        var baseUrl = HttpUtil.getBaseUrl();
         model.addAttribute("tags", service.tags().getItems());
 
         return "search";

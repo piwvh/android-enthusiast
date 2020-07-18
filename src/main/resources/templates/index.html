@@ -14,7 +14,7 @@
                             <li class="q" th:each="item : ${newest}">
                                 <div class="title" th:inline="text">
                                     <i class="fa fa-question-circle-o"></i>
-                                    <a th:href="${'/question/' + item.question_id}" th:text="${item.title}"></a>
+                                    <a th:href="${'/question/' + item.question_id}" th:utext="${item.title}"></a>
                                 </div>
                                 <div class="info" th:inline="text">
                                     <span class="score" title="Votes">
@@ -47,7 +47,7 @@
                             <li class="q" th:each="item : ${mostVoted}">
                                 <div class="title" th:inline="text">
                                     <i class="fa fa-question-circle-o"></i>
-                                    <a th:href="${'/question/' + item.question_id}" th:text="${item.title}"></a>
+                                    <a th:href="${'/question/' + item.question_id}" th:utext="${item.title}"></a>
                                 </div>
                                 <div class="info" th:inline="text">
                                     <span class="score" title="Votes">
@@ -80,3 +80,11 @@
     <div th:insert="partials/footer :: footer" th:remove="tag"></div>
 </body>
 </html>
+
+<!--
+accepted answer
+comment votes
+responsive
+css animations
+footer link
+-->

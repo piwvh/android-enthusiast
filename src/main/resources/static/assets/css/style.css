@@ -54,7 +54,7 @@ ul {
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 pre {
@@ -62,7 +62,7 @@ pre {
   padding: 10px;
 }
 pre code {
-  font-size: 12px;
+  font-size: 12px !important;
 }
 
 header {
@@ -70,18 +70,20 @@ header {
   padding-top: 10px;
   background: #0141ff;
 }
-header .logo {
-  float: left;
+header .logo:hover h1 {
+  letter-spacing: 1px;
 }
 header .logo img {
+  float: left;
   height: 50px;
 }
-header h1 {
+header .logo h1 {
   float: left;
   margin-left: 15px;
   font-size: 26px;
   line-height: 50px;
   color: #FFF;
+  transition: all 0.2s linear;
 }
 header .menu {
   float: right;
@@ -94,10 +96,14 @@ header .menu li {
 }
 header .menu li a {
   color: #FFF;
+  transition: all 0.2s linear;
+}
+header .menu li a:hover {
+  color: #9ad3ff;
 }
 
 .main {
-  min-height: 600px;
+  min-height: 660px;
   padding: 50px 0;
 }
 
@@ -112,6 +118,10 @@ footer p {
 }
 footer p a {
   color: #FFF;
+  transition: all 0.2s linear;
+}
+footer p a:hover {
+  color: #9ad3ff;
 }
 footer #creator, footer #creator a {
   font-size: 17px;
@@ -123,21 +133,6 @@ footer #copyright {
 #home-page .questions-section h2 {
   text-align: center;
   margin-bottom: 20px;
-}
-#home-page .questions-section li.q {
-  padding: 5px 10px 7px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background: rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-  margin-bottom: 30px;
-}
-#home-page .questions-section li.q .title {
-  color: #0191ff;
-}
-#home-page .questions-section li.q .info span {
-  margin-right: 20px;
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.4);
 }
 
 #question-page .head {
@@ -151,11 +146,19 @@ footer #copyright {
   font-size: 14px;
   margin-right: 30px;
 }
+#question-page .post {
+  padding: 20px 0;
+}
 #question-page .body {
   padding: 20px 0;
 }
 #question-page .body .score {
-  font-size: 24px;
+  font-size: 28px;
+  line-height: 20px;
+}
+#question-page .body .score i {
+  font-size: 16px;
+  vertical-align: top;
 }
 #question-page .body .info {
   overflow: hidden;
@@ -170,7 +173,11 @@ footer #copyright {
   width: 30px;
 }
 #question-page .body .comments {
-  margin-top: 30px;
+  margin-top: 35px;
+}
+#question-page .body .comments h3 {
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.4);
 }
 #question-page .body .comments li {
   padding: 3px 0 1px;
@@ -184,6 +191,34 @@ footer #copyright {
 #question-page .body .comments li p {
   margin-bottom: 0;
 }
+#question-page .body .comments li .date {
+  font-size: 11px;
+  color: #666;
+  margin-left: 7px;
+}
+#question-page #answers .post {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+#question-page #answers .post:last-child {
+  border: none;
+}
+
+#search-page #results {
+  margin-top: 50px;
+}
+
+#error-page .content {
+  text-align: center;
+  padding: 120px 0;
+}
+#error-page .content h1 {
+  font-size: 180px;
+  font-weight: bold;
+  margin-bottom: 100px;
+}
+#error-page .content p {
+  font-size: 50px;
+}
 
 .tags {
   margin-top: 20px;
@@ -195,17 +230,34 @@ footer #copyright {
   color: rgba(0, 0, 0, 0.4);
 }
 .tags li {
-  padding: 2px 3px;
-  background: rgba(0, 0, 0, 0.5);
+  padding: 2px 5px;
+  background: rgba(0, 0, 0, 0.4);
   color: #FFF;
   float: left;
   margin-right: 5px;
   font-size: 12px;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 5px;
 }
 .tags li:hover {
   background: #0191ff;
+}
+
+li.q {
+  padding: 5px 10px 7px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+li.q .title {
+  color: #0191ff;
+}
+li.q .info span {
+  margin-right: 25px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 /*# sourceMappingURL=style.css.map */
