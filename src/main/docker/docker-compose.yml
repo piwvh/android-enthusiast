@@ -1,0 +1,22 @@
+version: '3.6'
+
+services:
+  app:
+    container_name: interview-app
+    image: maven:3.6.3-jdk-11
+    volumes:
+      - ../../..:/app
+      - ~/.m2:/root/.m2
+    working_dir: /app
+    environment:
+      - "SPRING_PROFILES_ACTIVE=prod"
+    ports:
+    - "8585:8080"
+    networks:
+      - app-network
+    command: mvn clean spring-boot:run
+    #restart: always
+networks:
+  app-network:
+    name: interview_network
+    driver: bridge
