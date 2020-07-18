@@ -15,7 +15,7 @@ services:
     networks:
       - app-network
     command: mvn clean spring-boot:run
-    #restart: always
+    restart: always
 networks:
   app-network:
     name: interview_network
