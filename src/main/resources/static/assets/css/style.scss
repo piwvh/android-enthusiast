@@ -5,6 +5,9 @@ $blue: rgb(1, 65, 255);
 $blueLight: rgb(1, 145, 255);
 $time: 0.2s;
 
+$lg: 992px;
+$md: 768px;
+
 // reset
 * {
   font-family: 'Nunito', sans-serif;
@@ -42,6 +45,10 @@ header {
     img {
       float: left;
       height: 50px;
+
+      @media (max-width: $md) {
+        height: 40px;
+      }
     }
     h1 {
       float: left;
@@ -50,6 +57,10 @@ header {
       line-height: 50px;
       color: #FFF;
       transition: all $time linear;
+
+      @media (max-width: $md) {
+        font-size: 22px;
+      }
     }
   }
   .menu {
@@ -60,6 +71,13 @@ header {
       float: left;
       margin-left: 45px;
       line-height: 50px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+      @media (max-width: $md) {
+        margin-left: 35px;
+      }
 
       a {
         color: #FFF;
@@ -113,6 +131,10 @@ footer {
     h2 {
       text-align: center;
       margin-bottom: 20px;
+
+      @media (max-width: $lg) and (min-width: $md) {
+        font-size: 24px;
+      }
     }
   }
 }
@@ -139,13 +161,29 @@ footer {
   .body {
     padding: 20px 0;
 
-    .score {
-      font-size: 28px;
-      line-height: 20px;
+    .side {
+      .score {
+        font-size: 28px;
+        line-height: 20px;
 
-      i {
-        font-size: 16px;
-        vertical-align: top;
+        @media (max-width: $md) {
+          font-size: 26px;
+
+          i {
+            font-size: 14px;
+          }
+        }
+
+        i {
+          font-size: 14px;
+          vertical-align: top;
+          margin-bottom: 10px;
+        }
+      }
+      .accepted {
+        margin-top: 15px;
+        font-size: 35px;
+        color: #13aa13;
       }
     }
     .info {
@@ -153,6 +191,11 @@ footer {
 
       .owner {
         float: right;
+        margin-top: 16px;
+
+        @media (max-width: $md) {
+          float: none;
+        }
 
         .image {
           margin-right: 5px;
@@ -184,10 +227,18 @@ footer {
         }
         .date {
           font-size: 11px;
-          color: #666;
-          margin-left: 7px;
+          color: #888;
+          margin-left: 8px;
+        }
+        .score {
+          font-size: 11px;
+          color: #888;
+          margin-left: 8px;
         }
       }
+    }
+    .tags {
+      margin-top: 0;
     }
   }
   #answers {
@@ -246,6 +297,7 @@ footer {
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 5px;
+    transition: all $time linear;
 
     &:hover {
       background: $blueLight;
