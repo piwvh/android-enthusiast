@@ -42,7 +42,9 @@
                                         <span class="image" th:if="${question.owner.containsKey('profile_image')}">
                                             <img th:src="${question.owner.profile_image}" alt="owner image">
                                         </span>
-                                        <span class="name" th:utext="${question.owner.display_name}"></span>
+                                        <span class="name">
+                                            <a th:href="${question.owner.link}" th:utext="${question.owner.display_name}" target="_blank"></a>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +55,9 @@
                                 <li th:each="comment: ${question.comments}">
                                     <p>
                                         <span class="text" th:utext="${comment.body}"></span> –
-                                        <span class="owner" th:utext="${comment.owner.display_name}"></span>
+                                        <span class="owner">
+                                            <a th:href="${comment.owner.link}" th:utext="${comment.owner.display_name}" target="_blank"></a>
+                                        </span>
                                         <span class="date" th:text="${comment.date}"></span>
                                         <span class="score"><i class="fa fa-thumbs-up"></i> [[${comment.score}]]</span>
                                     </p>
@@ -90,7 +94,9 @@
                                                 <span class="image" th:if="${answer.owner.containsKey('profile_image')}">
                                                     <img th:src="${answer.owner.profile_image}" alt="owner image">
                                                 </span>
-                                                <span class="name" th:utext="${answer.owner.display_name}"></span>
+                                                <span class="name">
+                                                    <a th:href="${answer.owner.link}" th:utext="${answer.owner.display_name}" target="_blank"></a>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -101,7 +107,9 @@
                                         <li th:each="comment: ${answer.comments}">
                                             <p>
                                                 <span class="text" th:utext="${comment.body}"></span> –
-                                                <span class="owner" th:utext="${comment.owner.display_name ?: ''}"></span>
+                                                <span class="owner">
+                                                    <a th:href="${comment.owner.link}" th:utext="${comment.owner.display_name}" target="_blank"></a>
+                                                </span>
                                                 <span class="date" th:text="${comment.date}"></span>
                                                 <span class="score"><i class="fa fa-thumbs-up"></i> [[${comment.score}]]</span>
                                             </p>
