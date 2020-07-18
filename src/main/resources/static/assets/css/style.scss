@@ -7,6 +7,7 @@ $time: 0.2s;
 
 $lg: 992px;
 $md: 768px;
+$sm: 576px;
 
 // reset
 * {
@@ -162,28 +163,44 @@ footer {
     padding: 20px 0;
 
     .side {
+      @media (max-width: $sm) {
+        padding-right: 10px;
+      }
       .score {
         font-size: 28px;
         line-height: 20px;
 
         @media (max-width: $md) {
-          font-size: 26px;
-
-          i {
-            font-size: 14px;
-          }
+          font-size: 22px;
+        }
+        @media (max-width: $sm) {
+          font-size: 16px;
         }
 
         i {
-          font-size: 14px;
+          font-size: 17px;
           vertical-align: top;
-          margin-bottom: 10px;
+          margin-bottom: 5px;
+
+          @media (max-width: $md) {
+            font-size: 15px;
+          }
+          @media (max-width: $sm) {
+            font-size: 12px;
+          }
         }
       }
       .accepted {
-        margin-top: 15px;
+        margin-top: 10px;
         font-size: 35px;
         color: #13aa13;
+
+        @media (max-width: $md) {
+          font-size: 26px;
+        }
+        @media (max-width: $sm) {
+          font-size: 20px;
+        }
       }
     }
     .info {

@@ -18,14 +18,14 @@
             </div>
             <div class="body">
                 <div class="row">
-                    <div class="col-sm-1">
+                    <div class="col-1">
                         <div class="side">
                             <div class="score">
                                 <i class="fa fa-thumbs-o-up"></i> [[${question.score}]]
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-11">
+                    <div class="col-11">
                         <div class="content" th:utext="${question.body}"></div>
                         <div class="info">
                             <div class="row">
@@ -69,12 +69,12 @@
             </div>
         </div>
         <div id="answers" th:if="${question.containsKey('answers')}">
-            <h2>Answers</h2>
+            <h2 th:text="${question.answers.size() + ' Answer' + (question.answers.size() > 1 ? 's' : '')}"></h2>
             <div class="list">
                 <div class="post" th:each="answer: ${question.answers}" >
                     <div class="body">
                         <div class="row">
-                            <div class="col-md-1">
+                            <div class="col-1">
                                 <div class="side">
                                     <div class="score">
                                         <i class="fa fa-thumbs-o-up"></i> [[${answer.score}]]
@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-11">
+                            <div class="col-11">
                                 <div class="content" th:utext="${answer.body}"></div>
                                 <div class="info">
                                     <div class="row">
