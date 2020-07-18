@@ -31,3 +31,6 @@ you should be able to access the website using [http://localhost:8585](http://lo
  Also, I made the website responsive and mobile friendly :)
  
  
+ *Note*: As you may know, StackOverflow API has rate limit. If we exceed this limit, this application stops working.
+ In this case, please let me know to deploy the website on another server to solve this issue. Thank you very much.
+ 
