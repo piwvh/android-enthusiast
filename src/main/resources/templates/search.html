@@ -9,14 +9,14 @@
             <h2>
                 <i class="fa fa-filter"></i> Filters
             </h2>
-            <div class="row row-cols-4">
-                <div class="col">
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
                     <div class="form-group">
                         <label for="q">Text to Search</label>
                         <input type="text" class="form-control" id="q" name="q">
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm-6 col-md-3">
                     <div class="form-group">
                         <label for="tagged">Subject</label>
                         <select class="form-control" id="tagged" name="tagged">
@@ -25,19 +25,19 @@
                         </select>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm-6 col-md-3">
                     <div class="form-group">
                         <label for="from-date">From Date</label>
                         <input type="date" class="form-control" id="from-date" name="from-date" th:max="${today}">
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm-6 col-md-3">
                     <div class="form-group">
                         <label for="to-date">To Date</label>
                         <input type="date" class="form-control" id="to-date" name="to-date" th:max="${today}">
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm-6 col-md-3">
                     <div class="form-group">
                         <label for="sort">Sort</label>
                         <select class="form-control" id="sort" name="sort">
@@ -48,7 +48,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm-6 col-md-3">
                     <div class="form-group">
                         <label for="order">Order</label>
                         <select class="form-control" id="order" name="order">
@@ -57,7 +57,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-sm-6 col-md-3">
                     <div class="form-group">
                         <label for="page-size">Number of Results</label>
                         <input type="number" class="form-control" id="page-size" name="page-size" value="10" min="10" max="99">
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-md-3">
                     <button class="btn btn-success">Search</button>
                 </div>
             </div>
