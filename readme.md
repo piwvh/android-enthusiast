@@ -15,7 +15,7 @@ The application is accessible using this url: [http://88.99.37.77:8585](http://8
 However, if you wish to install it on your local machine, there are multiple ways for this purpose:
 
 - This application can be run using Docker. If you have Docker and Docker-Compose installed, please go to
-`cd src/main/docker` directory and simply run: `docker-compose up`. After downloading required images, 
+`src/main/docker` directory and simply run: `docker-compose up`. After downloading required images, 
 you should be able to access the website using [http://localhost:8585](http://localhost:8585) url.
 
 - If you have Java 11 (or later) and Maven installed, please run `mvn clean spring-boot:run` in the root
