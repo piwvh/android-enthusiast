@@ -12,7 +12,7 @@ questions from [StackOverflow](https://stackoverflow.com) website.
 ### Run
 There are multiple ways for running this application:
 
-- This application can be run using Docker. If you have Docker and Docker-Compose installed, please go to
+- If you have Docker and Docker-Compose installed, please go to
 `src/main/docker` directory and simply run: `docker-compose up`. After downloading required images, 
 you should be able to access the website using [http://localhost:8585](http://localhost:8585) url.
 
