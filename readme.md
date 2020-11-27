@@ -10,9 +10,7 @@ questions from [StackOverflow](https://stackoverflow.com) website.
 - Docker / Docker-Compose
 
 ### Run
-The application is accessible using this url: [http://88.99.37.77:8585](http://88.99.37.77:8585).
-
-However, if you wish to install it on your local machine, there are multiple ways for this purpose:
+There are multiple ways for running this application:
 
 - This application can be run using Docker. If you have Docker and Docker-Compose installed, please go to
 `src/main/docker` directory and simply run: `docker-compose up`. After downloading required images, 
@@ -29,8 +27,3 @@ you should be able to access the website using [http://localhost:8585](http://lo
  and activity, based on your ideal order (ascending or descending).
  
  Also, I made the website responsive and mobile friendly :)
- 
- 
- *Note*: As you may know, StackOverflow API has rate limit. If we exceed this limit, this application stops working.
- In this case, please let me know to deploy the website on another server to solve this issue. Thank you very much.
- 
